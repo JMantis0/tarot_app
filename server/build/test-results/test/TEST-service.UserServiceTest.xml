@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="service.UserServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-29T04:17:03" hostname="DESKTOP-FJ9FD08" time="0.067">
+<testsuite name="service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-29T10:26:18" hostname="DESKTOP-FJ9FD08" time="0.135">
   <properties/>
-  <testcase name="getUserFromDB()" classname="service.UserServiceTest" time="0.067"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="findByNonExistingUserName()" classname="service.UserServiceTest" time="0.024"/>
+  <testcase name="authenticateWithNoSuchUserName()" classname="service.UserServiceTest" time="0.084"/>
+  <testcase name="authenticateWithCorrectPassword()" classname="service.UserServiceTest" time="0.002"/>
+  <testcase name="authenticateWithIncorrectPassword()" classname="service.UserServiceTest" time="0.009"/>
+  <testcase name="findByExistingUserName()" classname="service.UserServiceTest" time="0.005"/>
+  <system-out><![CDATA[03:26:18.985 [Test worker] ERROR base.service.UserService - No such user found
+03:26:19.038 [Test worker] INFO base.service.UserService - Password correct... authentication successful
+03:26:19.040 [Test worker] ERROR base.service.UserService - Password incorrect... authentication failed.
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
