@@ -5,12 +5,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document
+@Document(collection = "users")
 public class User {
     @Id
     String userId;
     String firstName;
     String lastName;
     String password;
-    Integer small;
+    String userName;
 }

@@ -1,4 +1,4 @@
-package base.model;
+package base.pojo;
 
 import java.util.ArrayList;
 
