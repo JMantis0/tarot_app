@@ -12,5 +12,5 @@ public class User {
     String firstName;
     String lastName;
     String password;
-    Integer small;
+    String userName;
 }

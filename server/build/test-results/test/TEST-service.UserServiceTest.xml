@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="service.UserServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-29T04:17:03" hostname="DESKTOP-FJ9FD08" time="0.067">
+  <properties/>
+  <testcase name="getUserFromDB()" classname="service.UserServiceTest" time="0.067"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

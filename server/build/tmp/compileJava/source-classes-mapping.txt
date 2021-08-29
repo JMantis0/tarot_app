@@ -4,3 +4,9 @@ base/model/User.java
  base.model.User
 base/model/Deck.java
  base.model.Deck
+base/service/UserService.java
+ base.service.UserService
+base/repository/UserRepository.java
+ base.repository.UserRepository
+base/service/IUserService.java
+ base.service.IUserService
