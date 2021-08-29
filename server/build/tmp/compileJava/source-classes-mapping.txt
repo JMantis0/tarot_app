@@ -1,2 +1,6 @@
 base/TarotApplication.java
  base.TarotApplication
+base/model/User.java
+ base.model.User
+base/model/Deck.java
+ base.model.Deck
