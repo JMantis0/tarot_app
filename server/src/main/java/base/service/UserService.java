@@ -8,9 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
 @AllArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Slf4j
 public class UserService implements IUserService {
     private final UserRepository userRepository;
@@ -33,13 +35,13 @@ public class UserService implements IUserService {
         HttpStatus status;
         User foundUser = userRepository.findByUserName(userName);
         if(foundUser == null) {
-            log.info("The username " + userName + "is available.");
+            log.info("The username " + userName + " is available.");
             response = true;
             status = HttpStatus.OK;
         } else {
-            log.info("The username " + userName + "is already taken.");
+            log.info("The username " + userName + " is already taken.");
             response = false;
-            status = HttpStatus.CONFLICT;
+            status = HttpStatus.OK;
         }
         return new ResponseEntity<>(response, status);
     }
