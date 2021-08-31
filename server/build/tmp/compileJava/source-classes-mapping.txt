@@ -1,18 +1,18 @@
-base/model/User.java
- base.model.User
+base/TarotApplication.java
+ base.TarotApplication
 base/pojo/LoginForm.java
  base.pojo.LoginForm
 base/pojo/CreateUserForm.java
  base.pojo.CreateUserForm
 base/pojo/Deck.java
  base.pojo.Deck
+base/model/User.java
+ base.model.User
 base/service/IUserService.java
  base.service.IUserService
-base/TarotApplication.java
- base.TarotApplication
-base/service/UserService.java
- base.service.UserService
 base/repository/UserRepository.java
  base.repository.UserRepository
+base/service/UserService.java
+ base.service.UserService
 base/controller/UserController.java
  base.controller.UserController

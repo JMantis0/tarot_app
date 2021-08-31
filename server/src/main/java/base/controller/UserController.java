@@ -18,7 +18,6 @@ public class UserController {
 
     @GetMapping("/is_username_available")
     public ResponseEntity<Boolean> isUserNameAvailable(@RequestParam String userName) {
-        log.info("Get request from client on /api/is_username_available with request parameter: " + userName);
         return userService.isUserNameAvailable(userName);
     }
 
@@ -33,6 +32,4 @@ public class UserController {
         log.info("Post request from client on /api/authenticate_user with request body: " + loginForm.toString());
         return userService.authenticateUser(loginForm);
     }
-
-
 }

@@ -1,48 +1,14 @@
-import React, { useEffect } from "react";
-import { Fragment } from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { selectTarot, updateLoginForm } from "../../redux/tarotSlice";
-import axios from "axios";
-import { store } from "../../redux/store";
+import { selectTarot } from "../../redux/tarotSlice";
+import { formChangeHandler, authenticate } from "./loginAPI";
+import { useHistory } from "react-router";
 
 const Login = () => {
   const state = useAppSelector(selectTarot);
   const dispatch = useAppDispatch();
-
-  const formChangeHandler = (event: any) => {
-    const fieldName = event.target.name;
-    const value = event.target.value;
-    dispatch(updateLoginForm({ fieldName, value }));
-  };
-
-  useEffect(() => {
-    isUserNameAvailable();
-  }, [state.loginForm.userName])
-
-  const isUserNameAvailable = () => {
-    axios
-      .get(
-        "http://localhost:8080/api/is_username_available?userName=" +
-          state.loginForm.userName
-      )
-      .then((response) => {
-        console.log("Response: ", response);
-      })
-      .catch((err) => {
-        console.log("There was an error: ", err);
-      });
-  };
-
-  const authenticate = (event: any) => {
-    axios
-      .post("http://localhost:8080/api/authenticate_user", state.loginForm)
-      .then((response) => {
-        console.log("Response is: ", response);
-      })
-      .catch((err) => {
-        console.log("There was an error: ", err);
-      });
-  };
+  const history = useHistory();
 
   return (
     <Fragment>
@@ -50,13 +16,25 @@ const Login = () => {
       <form>
         <label>User Name</label>
         <br></br>
-        <input name="userName" onChange={formChangeHandler}></input>
+        <input
+          name="userName"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            formChangeHandler(e, dispatch)
+          }
+        ></input>
         <br></br>
         <label>Password</label>
         <br></br>
-        <input name="password" onChange={formChangeHandler}></input>
+        <input
+          type="password"
+          name="password"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            formChangeHandler(e, dispatch)
+          }
+        ></input>
       </form>
-      <button onClick={authenticate}>Log In</button>
+      <button onClick={() => authenticate(state, history)}>Log In</button>
+      <Link to="/create">Create User</Link>
     </Fragment>
   );
 };

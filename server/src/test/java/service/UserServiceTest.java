@@ -25,7 +25,11 @@ public class UserServiceTest {
 
     @Test
     public void findByNonExistingUserName() {
-
+        User user = new User();
+        user.setUserName("USERNAME");
+        Mockito.when(userRepository.findByUserName("USERNAME")).thenReturn(user);
+        User foundUser = userService.findByUserName("USERNAME");
+        Assertions.assertEquals(user,foundUser);
     }
 
     @Test

@@ -1,11 +1,29 @@
 import React from "react";
 import Login from "./pages/Login/Login";
+import CreateUser from "./pages/CreateUser/CreateUser";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import UserHome from "./pages/UserHome/UserHome";
 import "./App.css";
 
 function App() {
   return (
     <div>
-      <Login />
+      <Router>
+        <Switch>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/create">
+            <CreateUser />
+          </Route>
+          <Route exact path="/home">
+            <UserHome />
+          </Route>
+          <Route exact path="/invalid">
+            <h1>Invalid Login</h1>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
