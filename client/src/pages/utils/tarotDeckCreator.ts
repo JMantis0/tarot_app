@@ -8,10 +8,6 @@ interface Card {
   image: string;
 }
 
-interface Deck {
-  cards: Array<Card>;
-}
-
 export const createDeck = () => {
   let cards: Card[] = [];
 
