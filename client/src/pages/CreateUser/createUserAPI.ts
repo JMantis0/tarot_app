@@ -1,4 +1,3 @@
-import react from "react";
 import axios from "axios";
 import {
   TarotState,
@@ -8,11 +7,18 @@ import {
 
 export const formChangeHandler = (
   event: React.FormEvent<HTMLFormElement>,
-  dispatch: Function
+  dispatch: Function,
+  setRetypePassword: Function
 ) => {
-  const fieldName = (event.target as HTMLInputElement).name;
-  const value = (event.target as HTMLInputElement).value;
-  dispatch(setCreateUserForm({ fieldName, value }));
+  const input = event.target as HTMLInputElement;
+  if (input.name !== "retypePassword") {
+    const fieldName = input.name;
+    const value = input.value;
+    dispatch(setCreateUserForm({ fieldName, value }));
+  } else {
+    console.log(`Setting ${input.name} to ${input.value}`);
+    setRetypePassword(input.value);
+  }
 };
 
 export const isUserNameAvailable = (state: TarotState, dispatch: Function) => {
