@@ -1,5 +1,12 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "./store";
+import {
+  createAsyncThunk,
+  createSlice,
+  // PayloadAction
+} from "@reduxjs/toolkit";
+import {
+  RootState,
+  //  AppThunk
+} from "./store";
 import { fetchCount } from "../features/counter/counterAPI";
 
 export interface Card {

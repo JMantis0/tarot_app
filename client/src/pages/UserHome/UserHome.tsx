@@ -1,16 +1,15 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import TarotDeck from "../../components/TarotDeck";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { selectTarot, setDeck } from "../../redux/tarotSlice";
-import { createDeck } from "../utils/tarotDeckCreator";
+import { useAppSelector } from "../../redux/hooks";
+import { selectTarot } from "../../redux/tarotSlice";
 
 const UserHome = () => {
   const state = useAppSelector(selectTarot);
-  const dispatch = useAppDispatch();
 
   return (
     <Fragment>
       <header>Tarot User Home</header>
+      <p>Welcome{` ${state.loginForm.userName}`}</p>
       <TarotDeck />
     </Fragment>
   );

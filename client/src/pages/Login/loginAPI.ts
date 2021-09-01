@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { TarotState, setLoginForm, setUserNameAvailable } from "../../redux/tarotSlice";
+import { TarotState, setLoginForm } from "../../redux/tarotSlice";
 import { History, LocationState } from "history";
 export const formChangeHandler = (
   event: React.ChangeEvent<HTMLInputElement>,
